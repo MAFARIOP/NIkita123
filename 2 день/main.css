@@ -1,0 +1,190 @@
+*{
+	font-family: "arsenal-regular";
+	
+	cursor: none;
+}
+body{
+	background-image: url(1.jpg);
+}
+
+:root {
+	--main-color: #141414;
+	--calc:calc(1vw + 1vh);
+	--cubic-bezier: 1.25s cubic-bezier(.2, .5, .0, 1);
+	--cublic-bezier: 2s cubic-bezier(2s(.05, .5, .0, 1));
+}
+a{
+	text-decoration: none;
+	color: black;
+
+}
+.magic-list{
+	font-family: arsenal_f,sans-serif;
+	font-size: calc(var(--i)*2);
+	padding: calc(var(--i)*2);
+}
+.magic-list__item{
+	cursor: none;
+	color: var(--c);
+	text-decoration: none;
+	display: block;
+	line-height: .9;
+	padding: calc(var(--i)*3)calc(var(--i)*7.5);
+	border-bottom: 1px solid red;
+	counter-increment: my-counter;
+}
+.magic-list__item:first-child{
+	border-top: 1.5px solid var(--c);
+}
+.magic-list_header{
+transition: transform var(--transition);
+font-size: 50px;
+display: flex;
+align-items: center;
+padding-left: 60px;
+padding-top: 70px;
+padding-bottom: 70px ;
+}
+.magic-list__item::before{
+	position: absolute;
+	font-size: calc(var(--i)* .95);
+	margin-left: calc(var(--i)* -2.25);
+	margin-top: var((--i)/2);
+	letter-spacing: .5px;
+	transition: transform var(--transition);
+	transition-delay: .025s;
+	will-change: transform;
+}
+.magic-list_item:hover .cursor{
+	display: block;
+}
+.cursor {
+	transition: transform var(--transition-cursor), height 1s ease;
+	position: fixed;
+	--width: (var(--width)* 20);
+	--height: calc(var(--i)* 15);
+	width: var(--width);
+	height: 0;
+	/* top:calc(var(--height)* -.5);
+	left: calc(var(--width)* -.5); */
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	transform: translate3d(var(--move-x),var(--move-y),0);
+	z-index: -100;
+	will-change: transform;
+}
+.cursor__image {
+	--cursor-transform: translate3d(calc(var(--move-x)/ -5), calc(var(--move-y)/ -5),0);
+	position: relative;
+	width: calc(var(--width) *2 );
+	height: calc(var(--height) *2 );
+	top: calc(var(--height) * -2.23);
+	left: calc(var(--width) * -.20);
+	background-size:cover;
+	background-position: center;
+	transform: var(--cursor-transform)scale(2);
+	transition: transform var(--transition-cursor);
+	cursor: none;
+}
+.magic-list_item:hover .cursor__image{
+	transform: var(--cursor-transform)scale(1);
+}
+.magic-list_item:hover .cursor{
+	height: var(--height);
+	
+}
+@font-face{
+	font-family: "arsenal-regular";
+	src: url("arsenal-regular.woff2");
+}
+.sup {
+	color: gray;
+	margin-left: -10px;
+	font-size: 25px;
+}
+.for_all {
+    margin: 10px 3px 0 3px;
+    float: left;
+    background-image:url("1.jpg");
+    background-size:100% 100%;
+	animation: hop 0.4s alternate;
+	animation-fill-mode: both ;
+}
+.for_all1 {
+    margin: 10px 3px 0 3px;
+    float: left;
+    background-image:url("2.jpg");
+    background-size:100% 100%;
+	animation: hop 0.4s alternate;
+	animation-fill-mode: both ;
+}
+.for_all2 {
+    margin: 10px 3px 0 3px;
+    float: left;
+    background-image:url("3.jpg");
+    background-size:100% 100%;
+	animation: hop 0.4s alternate;
+	animation-fill-mode: both ;
+}
+.for_all3 {
+    margin: 10px 3px 0 3px;
+    float: left;
+    background-image:url("4.jpg");
+    background-size:100% 100%;
+	animation: hop 0.4s alternate;
+	animation-fill-mode: both ;
+}
+.for_all4 {
+    margin: 10px 3px 0 3px;
+    float: left;
+    background-image:url("5.jpg");
+    background-size:100% 100%;
+	animation: hop 0.4s alternate;
+	animation-fill-mode: both ;
+}
+@keyframes hop {
+	0%{
+		height: 0px;
+		width: 100px;
+		
+	}
+	100%{
+		height: calc(var(--height) *2 );
+		
+	}
+}
+.magic-list_item:not(:hover) .for_all{
+	animation: op 1s alternate;
+	animation-fill-mode: both ;
+}
+.magic-list_item:not(:hover) .for_all1{
+	animation: op 1s alternate;
+	animation-fill-mode: both ;
+}
+.magic-list_item:not(:hover) .for_all2{
+	animation: op 1s alternate;
+	animation-fill-mode: both ;
+}
+.magic-list_item:not(:hover) .for_all3{
+	animation: op 1s alternate;
+	animation-fill-mode: both ;
+}
+.magic-list_item:not(:hover) .for_all4{
+	animation: op 1s alternate;
+	animation-fill-mode: both ;
+}
+@keyframes op {
+	0%{
+		height: calc(var(--height) *2 );
+		
+	}
+	100%{
+		height: 0px;
+		width: 100px;
+	}
+}
+.magic-list_item:hover .magic-list__header,.magic-list__item:hover::before {
+padding-left: 40px;
+	transform: translate3d(calc(var(--index) * -5), 0, 0);
+}
